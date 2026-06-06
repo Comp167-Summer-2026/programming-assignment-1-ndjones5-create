@@ -26,9 +26,9 @@ public class TemperatureConverter {
                             double convertedTemp = convertTemperature(temp, unit);
 
                             if (unit.equals("C")) {
-                                System.out.printf("%.2f°C is equal to %.2f°F%n", temp, convertedTemp);
+                                System.out.printf("%.2f\u00B0C is equal to %.2f\u00B0F%n", temp, convertedTemp);
                             } else {
-                                System.out.printf("%.2f°F is equal to %.2f°C%n", temp, convertedTemp);
+                                System.out.printf("%.2f\u00B0F is equal to %.2f\u00B0C%n", temp, convertedTemp);
                             }
                         } else {
                             System.out.println("Error: Unrecognized unit label. Please enter C or F.");
