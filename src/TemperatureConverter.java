@@ -19,20 +19,26 @@ public class TemperatureConverter {
                     double temp = inputParser.nextDouble();
 
                     if (!inputParser.hasNext()) {
-                        System.out.print("Enter the unit (C or F): ");
-                        String unit = scanner.nextLine().trim().toUpperCase();
 
-                        if (unit.equals("C") || unit.equals("F")) {
-                            double convertedTemp = convertTemperature(temp, unit);
+                        boolean validUnit = false;
+                        while (!validUnit) {
+                            System.out.print("Enter the unit (C or F): ");
+                            String unit = scanner.nextLine().trim().toUpperCase();
 
-                            if (unit.equals("C")) {
-                                System.out.printf("%.2f\u00B0C is equal to %.2f\u00B0F%n", temp, convertedTemp);
+                            if (unit.equals("C") || unit.equals("F")) {
+                                validUnit = true;
+                                double convertedTemp = convertTemperature(temp, unit);
+
+                                if (unit.equals("C")) {
+                                    System.out.printf("%.2f\u00B0C is equal to %.2f\u00B0F%n", temp, convertedTemp);
+                                } else {
+                                    System.out.printf("%.2f\u00B0F is equal to %.2f\u00B0C%n", temp, convertedTemp);
+                                }
                             } else {
-                                System.out.printf("%.2f\u00B0F is equal to %.2f\u00B0C%n", temp, convertedTemp);
+                                System.out.println("Error: Unrecognized unit label. Please enter C or F.");
                             }
-                        } else {
-                            System.out.println("Error: Unrecognized unit label. Please enter C or F.");
                         }
+
                     } else {
                         System.out.println("Error: Invalid temperature input. Please enter a valid number.");
                     }
